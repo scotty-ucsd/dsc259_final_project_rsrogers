@@ -1,0 +1,41 @@
+---
+---
+@import "{{ site.theme }}";
+
+/* Custom Variables */
+:root {
+  --primary-blue: #243b55;
+  --data-accent: #00d2ff;
+  --text-main: #333;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* Make wide charts fit the screen */
+.wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Header styling */
+header {
+  border-bottom: 2px solid var(--data-accent);
+  margin-bottom: 2rem;
+}
+
+/* Interactive Plot Container */
+iframe {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin: 1.5rem 0;
+}
+
+/* Math blocks padding */
+.MathJax_Display {
+  margin: 2rem 0 !important;
+}
