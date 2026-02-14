@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 {% include head.html %}
+
 <body id="page-top">
-  {% include nav.html %}
-  
-  <section class="page-section" style="padding-top: 150px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                {{ content }}
-                <hr>
-                <a href="{{ site.baseurl }}/" class="btn btn-primary btn-xl">Back to Home</a>
+    {% include nav.html %}
+
+    <section class="page-section" style="padding-top: 150px; min-height: 80vh;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    {{ content }}
+                    
+                    <div class="text-center" style="margin-top: 50px;">
+                        <hr class="primary">
+                        <a class="btn btn-primary btn-xl page-scroll" href="{{ site.baseurl }}/index.html#services">Return to Roadmap</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-  </section>
+    </section>
 
-  {% include scripts.html %}
+    {% include scripts.html %}
 </body>
+
 </html>
