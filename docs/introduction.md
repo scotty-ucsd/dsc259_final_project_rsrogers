@@ -1,6 +1,6 @@
 ---
 layout: page
-title: ""Step 1: Introduction""
+title: "Step 1: Introduction"
 permalink: /introduction/
 ---
 
