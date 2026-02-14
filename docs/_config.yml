@@ -1,12 +1,12 @@
-# Site settings
-title:
-email:
-description: > # this means to ignore newlines until "baseurl:"
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "" # the base hostname & protocol for your site
-
-twitter_username:
-github_username:
+title: "DSC259 Final Project: Power Outages"
+author: "Scotty, Hans, and [Group Member 3]" # Better for multiple names
+email: "rsrogers@ucsd.edu" # Keep to a single primary email to avoid breaking mailto: links
+description: >-
+  Following the data science lifecycle for major power outage risk in the U.S.
+url: "[https://scotty-ucsd.github.io](https://scotty-ucsd.github.io)"
+baseurl: "/dsc259_final_project_rsrogers"
+twitter_username: ""
+github_username: "scotty-ucsd"
 
 # Build settings
 markdown: kramdown
