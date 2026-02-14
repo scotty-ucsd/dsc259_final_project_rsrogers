@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: bio
 title: "About RS Rogers"
 permalink: /bio-rsrogers/
 ---
@@ -12,4 +12,4 @@ Briefly describe your role in the DSC259 project and your areas of interest.
 * EDA Visualization
 * Fairness Analysis
 
-[Return to Home]({{ site.baseurl }}/)
+

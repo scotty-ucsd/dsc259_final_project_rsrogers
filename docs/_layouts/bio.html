@@ -1,4 +1,9 @@
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+<body id="page-top">
+
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top affix">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -23,10 +28,31 @@
                 <li>
                     <a class="page-scroll" href="{{ site.baseurl }}/index.html#portfolio">Deliverables</a>
                 </li>
-                <li>
-                    <a class="page-scroll" href="{{ site.baseurl }}/index.html#contact">Team</a>
-                </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<section class="page-section" id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h1 class="section-heading">{{ page.title }}</h1>
+                <hr class="primary">
+                
+                <div class="text-left" style="margin-top: 30px;">
+                    {{ content }}
+                </div>
+                
+                <div style="margin-top: 50px;">
+                    <hr class="primary">
+                    <a class="btn btn-primary btn-xl" href="{{ site.baseurl }}/index.html#Contact">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include scripts.html %}
+</body>
+</html>

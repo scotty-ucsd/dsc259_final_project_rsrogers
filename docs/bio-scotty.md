@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: scotty
 title: "About Scotty"
 permalink: /bio-scotty/
 ---
@@ -12,4 +12,4 @@ Briefly describe your role in the DSC259 project and your areas of interest.
 * thing 2 
 
 
-[Return to Home]({{ site.baseurl }}/)
+
