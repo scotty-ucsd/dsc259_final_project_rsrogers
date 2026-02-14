@@ -19,44 +19,40 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a class="page-scroll" href="{{ site.baseurl }}/index.html#about">Access Data</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="{{ site.baseurl }}/index.html#services">Project Roadmap</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="{{ site.baseurl }}/index.html#portfolio">Deliverables</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="{{ site.baseurl }}/index.html#portfolio">Team</a>
-                </li>
-
+                <li><a class="page-scroll" href="{{ site.baseurl }}/index.html#about">Access Data</a></li>
+                <li><a class="page-scroll" href="{{ site.baseurl }}/index.html#services">Project Roadmap</a></li>
+                <li><a class="page-scroll" href="{{ site.baseurl }}/index.html#portfolio">Deliverables</a></li>
+                <li><a class="page-scroll" href="{{ site.baseurl }}/index.html#contact">Team</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<section class="page-section" id="content">
+<section class="page-section" style="padding-top: 150px;">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h1 class="section-heading">{{ page.title }}</h1>
+            <div class="col-md-4 text-center">
+                <img src="{{ site.baseurl }}/img/team/{{ page.photo }}" class="img-responsive img-circle center-block" alt="{{ page.title }}" style="width: 250px; height: 250px; object-fit: cover; border: 5px solid #F05F40; margin-bottom: 20px;">
+                <h2>{{ page.name }}</h2>
+                <p class="text-muted">{{ page.role }}</p>
                 <hr class="primary">
-                
-                <div class="text-left" style="margin-top: 30px;">
+            </div>
+
+            <div class="col-md-8">
+                <div class="text-left">
                     {{ content }}
                 </div>
                 
                 <div style="margin-top: 50px;">
-                    <hr class="primary">
-                    <a class="btn btn-primary btn-xl" href="{{ site.baseurl }}/index.html#contact">Back</a>
+                    <hr class="primary" style="margin-left: 0; text-align: left; width: 50px;">
+                    <a class="btn btn-primary btn-xl" href="{{ site.baseurl }}/index.html#contact">Return to Team</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+{% include footer.html %}
 {% include scripts.html %}
 </body>
 </html>

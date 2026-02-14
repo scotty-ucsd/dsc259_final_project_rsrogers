@@ -1,5 +1,5 @@
 ---
-layout: scotty
+layout: bio
 title: "About Scotty"
 permalink: /bio-scotty/
 ---
