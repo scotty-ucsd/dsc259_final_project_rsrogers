@@ -1,5 +1,5 @@
 ---
-layout: front
+layout: page
 title: Fairness Analysis
 permalink: /fairness/
 ---

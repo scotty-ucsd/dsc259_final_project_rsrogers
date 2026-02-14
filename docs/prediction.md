@@ -1,5 +1,5 @@
 ---
-layout: front
+layout: page
 title: Framing a Prediction Problem
 permalink: /prediction/
 ---

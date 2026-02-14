@@ -1,5 +1,5 @@
 ---
-layout: front
+layout: page
 title: Final Model
 permalink: /final-model/
 ---

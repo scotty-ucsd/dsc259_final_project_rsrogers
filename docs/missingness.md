@@ -1,5 +1,5 @@
 ---
-layout: front
+layout: page
 title: Assessment of Missingness
 permalink: /missingness/
 ---

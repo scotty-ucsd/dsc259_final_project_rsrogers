@@ -1,5 +1,5 @@
 ---
-layout: front
+layout: page
 title: Baseline Model
 permalink: /baseline/
 ---

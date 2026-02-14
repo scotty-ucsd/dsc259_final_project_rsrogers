@@ -1,5 +1,5 @@
 ---
-layout: front
+layout: page
 title: Hypothesis Testing
 permalink: /hypothesis/
 ---
