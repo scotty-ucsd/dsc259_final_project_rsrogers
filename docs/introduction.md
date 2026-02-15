@@ -1,6 +1,7 @@
 ---
 layout: page
-title: "Step 1: Introduction"
+step_number: "Step 1"
+step_title: "Introduction"
 permalink: /introduction/
 ---
 
