@@ -13,6 +13,8 @@ permalink: /introduction/
     * **Climatic information** and regional weather patterns.
     * **Electricity consumption** and **economic characteristics** of affected states.
 
+---
+
 ## Brief Description
 * An initial look at the raw data revealed an irregular structure unsuitable for direct analysis.
 
@@ -36,6 +38,7 @@ permalink: /introduction/
 
 #### 2. What is the central question you are answering?
 * [Insert potential specific research question here]
+* **IMPORTANT** DEFINE QUESTION THIS IS FIRST IN DATA SCIENCE LIFE CYCLE **IMPORTANT** 
 
 #### 3. Why does power outage risk matter?
 * [Insert your reasoning here]
