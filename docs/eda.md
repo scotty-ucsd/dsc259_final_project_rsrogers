@@ -35,9 +35,11 @@ We will split this investigation into two distinct parts.
 ## Data Cleaning
 
 ### Address Formatting
-A raw inspection of the dataset using `head data/outage.csv` reveals a complex metadata structure at the top of the file that prevents standard CSV parsing:
+A raw inspection of the dataset using `head` on `data/outage.csv` reveals a intricate structure at the top of the file that prevents standard CSV parsing:
 
-```text
+```bash
+head data/outage.csv
+
 Major power outage events in the continental U.S.,,,,,
 Time period: January 2000 - July 2016,,,,,,,,
 Regions affected: Outages reported in this data file affected a single U.S. state...
@@ -46,21 +48,23 @@ Regions affected: Outages reported in this data file affected a single U.S. stat
 variables,OBS,YEAR,MONTH,U.S._STATE,POSTAL.CODE...
 Units,,,,,,,,numeric...
 ```
+
 To "buff out the dents" of this irregular structure, we utilized targeted shell commands to bypass the metadata (rows 1-5) and the unit descriptions (row 7), resulting in a standardized file:
 
 * **Extracting Headers:** 
+
 ```bash
 head -6 data/outage.csv | tail -1 | cut -d ',' -f 2- > data/outage_clean.csv
-
 ```
 
-**Appending Data:** 
+* **Appending Data:** 
+
 ```bash
 tail -n +8 data/outage.csv | cut -d ',' -f 2- >> data/outage_clean.csv
 ```
 
 ### Defined Features
-The following table outlines the key features in our cleaned dataset that utilize specific measurement units. Defining these is critical for contextualizing the magnitude of the outages during exploratory data analysis.
+The following table shows features in the dataset that have non-null units.
 
 <div class="table-responsive">
     <table class="table table-striped">
@@ -424,33 +428,7 @@ The raw data split outage information into separate date and time strings (e.g.,
 * **Handling Incompletes:** We filtered out observations missing crucial temporal data, specifically dropping rows where `START.DATETIME`, `RESTORATION.DATETIME`, or `OUTAGE.DURATION` contained null values.
 
 #### 3. Cleaned Data Head
-As per the project requirements, here is the head of our standardized and cleaned DataFrame:
-
-*INSERT TABLE OF df_cleaned.head() HERE*
-
-### Univariate Analysis
-We examined the distribution of outage durations and their primary drivers. The **Outage Duration** histogram reveals a significant right-skew; while most outages are short-lived, the "long tail" represents extreme events that last thousands of minutes. Simultaneously, the **Cause Category** bar chart highlights "Severe Weather" and "Intentional Attack" as the most frequent triggers for outages in this dataset.
-
-<div class="plotly-container" style="margin: 30px 0;">
-    <iframe src="{{ site.baseurl }}/img/plots/outage_duration.html" width="100%" height="500px" frameborder="0"></iframe>
-    <iframe src="{{ site.baseurl }}/img/plots/cause_category.html" width="100%" height="500px" frameborder="0"></iframe>
-    <p class="text-muted text-center">
-        <em>Figures 2 & 3: Most outages are caused by severe weather or intentional attacks...</em>
-    </p>
-</div>
-
-### Bivariate Analysis
-To investigate seasonality, we analyzed the relationship between the month an outage began and its duration. Because the duration varies by several orders of magnitude, we utilized a **Logarithmic Scale** for the Y-axis. The resulting box plot shows that while summer months (June/July) often see a high volume of events, the variance in duration remains high year-round.
-
-<div class="plotly-container" style="margin: 30px 0;">
-    <iframe src="{{ site.baseurl }}/img/plots/duration_month.html" width="100%" height="500px" frameborder="0"></iframe>
-    <p class="text-muted text-center">
-        <em>Figure 4: Outage durations across months. The log scale reveals extreme restoration times.</em>
-    </p>
-</div>
-
-### Interesting Aggregates
-The table below represents a pivot of the dataset, grouping by **Climate Region** and **Cause Category** to show the **Median Outage Duration**. This aggregation helps identify regional infrastructure vulnerabilities—for example, the "East North Central" region shows significantly higher median restoration times for "Severe Weather" compared to the "Southwest."
+Below is the result of `df_cleaned.head()` head of our the cleaned DataFrame:
 
 <div class="table-responsive" style="overflow-x: auto; white-space: nowrap; padding-bottom: 15px;">
     <table class="table table-striped table-bordered" style="font-size: 0.8em;">
@@ -479,7 +457,87 @@ The table below represents a pivot of the dataset, grouping by **Climate Region*
     </table>
 </div>
 
+### Univariate Analysis
+We examined the distribution of outage durations and their primary drivers. The **Outage Duration** histogram reveals a significant right-skew; while most outages are short-lived, the "long tail" represents extreme events that last thousands of minutes. Simultaneously, the **Cause Category** bar chart highlights "Severe Weather" and "Intentional Attack" as the most frequent triggers for outages in this dataset.
+
+<div class="plotly-container" style="margin: 30px 0;">
+    <iframe src="{{ site.baseurl }}/img/plots/outage_duration.html" width="100%" height="500px" frameborder="0"></iframe>
+    <iframe src="{{ site.baseurl }}/img/plots/cause_category.html" width="100%" height="500px" frameborder="0"></iframe>
+    <p class="text-muted text-center">
+        <em>Figures 2 & 3: Most outages are caused by severe weather or intentional attacks...</em>
+    </p>
+</div>
+
+### Bivariate Analysis
+The effect season plays on outages, we looked at the relationship between the month an outage began and its duration.
+
+<div class="plotly-container" style="margin: 30px 0;">
+    <iframe src="{{ site.baseurl }}/img/plots/duration_month.html" width="100%" height="500px" frameborder="0"></iframe>
+    <p class="text-muted text-center">
+        <em>Figure 4: Outage durations across months. The log scale reveals extreme restoration times.</em>
+    </p>
+</div>
+
+### Interesting Aggregates
+The table below represents a pivot of the dataset, grouping by **Climate Region** and **Cause Category** to show the **Median Outage Duration**. This aggregation helps identify regional infrastructure vulnerabilities.
+
+<div class="table-responsive" style="overflow-x: auto; display: block; width: 100%; padding-bottom: 15px;">
+    <table class="table table-striped table-bordered" style="white-space: nowrap; font-size: 0.9em;">
+        <thead>
+            <tr>
+                <th>CLIMATE.REGION</th>
+                <th>equipment failure</th>
+                <th>fuel supply emergency</th>
+                <th>intentional attack</th>
+                <th>islanding</th>
+                <th>public appeal</th>
+                <th>severe weather</th>
+                <th>system operability disruption</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Central</strong></td>
+                <td>149.0</td><td>7500.5</td><td>50.0</td><td>96.0</td><td>1410.0</td><td>1680.0</td><td>65.0</td>
+            </tr>
+            <tr>
+                <td><strong>East North Central</strong></td>
+                <td>761.0</td><td>13564.0</td><td>648.5</td><td>1.0</td><td>733.0</td><td>4005.0</td><td>2694.0</td>
+            </tr>
+            <tr>
+                <td><strong>Northeast</strong></td>
+                <td>159.0</td><td>12240.0</td><td>1.0</td><td>881.0</td><td>2760.0</td><td>3189.0</td><td>234.5</td>
+            </tr>
+            <tr>
+                <td><strong>Northwest</strong></td>
+                <td>702.0</td><td>1.0</td><td>74.0</td><td>21.0</td><td>898.0</td><td>3507.0</td><td>157.5</td>
+            </tr>
+            <tr>
+                <td><strong>South</strong></td>
+                <td>227.0</td><td>20160.0</td><td>100.0</td><td>493.5</td><td>430.0</td><td>2027.5</td><td>373.0</td>
+            </tr>
+            <tr>
+                <td><strong>Southeast</strong></td>
+                <td>308.5</td><td>NaN</td><td>108.0</td><td>NaN</td><td>4320.0</td><td>1355.0</td><td>110.0</td>
+            </tr>
+            <tr>
+                <td><strong>Southwest</strong></td>
+                <td>35.0</td><td>76.0</td><td>56.0</td><td>2.0</td><td>2275.0</td><td>2425.0</td><td>284.0</td>
+            </tr>
+            <tr>
+                <td><strong>West</strong></td>
+                <td>269.0</td><td>882.5</td><td>108.0</td><td>128.5</td><td>420.0</td><td>962.0</td><td>199.0</td>
+            </tr>
+            <tr>
+                <td><strong>West North Central</strong></td>
+                <td>61.0</td><td>NaN</td><td>0.5</td><td>56.0</td><td>439.5</td><td>83.0</td><td>NaN</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 ---
+
 ## Checkpoint Questions
 
 #### 1. Data Cleaning
