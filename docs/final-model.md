@@ -1,6 +1,7 @@
 ---
 layout: page
-title: "Step 7: Final Model"
+step_number: "Step 7"
+step_title: "Final Model"
 permalink: /final-model/
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: page
-title: "Step 5: Framing a Prediction Problem"
+step_number: "Step 5"
+step_title: "Framing a Prediction Problem"
 permalink: /prediction/
 ---
 

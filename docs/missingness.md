@@ -1,6 +1,7 @@
 ---
 layout: page
-title: "Step 3: Assessment of Missingness"
+step_number: "Step 3"
+step_title: "Assessment of Missingness"
 permalink: /missingness/
 ---
 

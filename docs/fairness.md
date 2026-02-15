@@ -1,6 +1,7 @@
 ---
 layout: page
-title: "Step 8: Fairness Analysis"
+step_number: "Step 8"
+step_title: "Fairness Analysis"
 permalink: /fairness/
 ---
 

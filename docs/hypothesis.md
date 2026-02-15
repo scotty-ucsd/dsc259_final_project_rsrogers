@@ -1,6 +1,7 @@
 ---
 layout: page
-title: "Step 4: Hypothesis Testing"
+step_number: "Step 4"
+step_title: "Hypothesis Testing"
 permalink: /hypothesis/
 ---
 

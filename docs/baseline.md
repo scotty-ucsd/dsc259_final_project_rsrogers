@@ -1,6 +1,7 @@
 ---
 layout: page
-title: "Step 6: Baseline Model"
+step_number: "Step 6"
+step_title: "Baseline Model"
 permalink: /baseline/
 ---
 
