@@ -63,19 +63,20 @@
 
                         <li><a class="btn btn-primary btn-xl" href="{{ site.baseurl }}/index.html#services">Return to Roadmap</a></li>
 
-                        {% if page.step_number == "Step 1" %}
+                        {% assign current_step = page.step_number | strip %}
+                        {% if current_step == "Step 1" %}
                             <li><a class="btn btn-default btn-xl" href="{{ site.baseurl }}/eda/">To Step 2</a></li>
-                        {% elsif page.step_number == "Step 2" %}
+                        {% elsif current_step == "Step 2" %}
                             <li><a class="btn btn-default btn-xl" href="{{ site.baseurl }}/missingness/">To Step 3</a></li>
-                        {% elsif page.step_number == "Step 3" %}
+                        {% elsif current_step == "Step 3" %}
                             <li><a class="btn btn-default btn-xl" href="{{ site.baseurl }}/hypothesis/">To Step 4</a></li>
-                        {% elsif page.step_number == "Step 4" %}
+                        {% elsif current_step == "Step 4" %}
                             <li><a class="btn btn-default btn-xl" href="{{ site.baseurl }}/prediction/">To Step 5</a></li>
-                        {% elsif page.step_number == "Step 5" %}
+                        {% elsif current_step == "Step 5" %}
                             <li><a class="btn btn-default btn-xl" href="{{ site.baseurl }}/baseline/">To Step 6</a></li>
-                        {% elsif page.step_number == "Step 6" %}
+                        {% elsif current_step == "Step 6" %}
                             <li><a class="btn btn-default btn-xl" href="{{ site.baseurl }}/final-model/">To Step 7</a></li>
-                        {% elsif page.step_number == "Step 7" %}
+                        {% elsif current_step == "Step 7" %}
                             <li><a class="btn btn-default btn-xl" href="{{ site.baseurl }}/fairness/">To Step 8</a></li>
                         {% endif %}
                     </ul>
