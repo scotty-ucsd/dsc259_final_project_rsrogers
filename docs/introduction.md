@@ -1,7 +1,6 @@
 ---
 layout: page
-step_number: "Step 1"
-step_title: "Introduction"
+title: "Step 1: Introduction"
 permalink: /introduction/
 ---
 
@@ -35,7 +34,7 @@ permalink: /introduction/
 *See Background and Brief Description sections above.*
 
 #### 2. What is the central question you are answering?
-* [Insert your specific research question here, e.g., "Can we predict outage duration based on climatic conditions?"]
+* [Insert potential specific research question here]
 
 #### 3. Why does power outage risk matter?
-* [Insert your reasoning here, e.g., "Outages impact public safety, economic stability, and critical infrastructure resilience."]
+* [Insert your reasoning here]
