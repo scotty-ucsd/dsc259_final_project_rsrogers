@@ -7,6 +7,7 @@
 
 ## Question 2
 *  Upload a screenshot of a plotly visualization you’ve created while completing Part 1, Step 2: Data Cleaning and Exploratory Data Analysis.
+
 ![Outage_Climate](./imgs/outage_duration_across_climate_regions.png)
 
 ---
